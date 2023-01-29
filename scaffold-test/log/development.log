@@ -1,0 +1,159 @@
+  [1m[35m (88.1ms)[0m  [1m[35mCREATE DATABASE "scaffold_test_development" ENCODING = 'unicode'[0m
+  [1m[35m (45.6ms)[0m  [1m[35mCREATE DATABASE "scaffold_test_test" ENCODING = 'unicode'[0m
+  [1m[35m (25.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "scaffold_test_development"[0m
+  [1m[35m (23.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "scaffold_test_test"[0m
+  [1m[35m (80.1ms)[0m  [1m[35mCREATE DATABASE "scaffold_test_development" ENCODING = 'unicode'[0m
+  [1m[35m (90.5ms)[0m  [1m[35mCREATE DATABASE "scaffold_test_test" ENCODING = 'unicode'[0m
+  [1m[35m (22.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "scaffold_test_development"[0m
+  [1m[35m (22.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "scaffold_test_test"[0m
+  [1m[35m (79.2ms)[0m  [1m[35mCREATE DATABASE "scaffold_test_development" ENCODING = 'unicode'[0m
+  [1m[35m (81.9ms)[0m  [1m[35mCREATE DATABASE "scaffold_test_test" ENCODING = 'unicode'[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8731487396604336735)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateProductions (20230129003846)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "productions" ("id" bigserial primary key, "title" character varying, "genre" character varying, "description" text, "budget" float, "image" character varying, "director" character varying, "ongoing" boolean, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230129003846"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-01-29 00:50:10.851295"], ["updated_at", "2023-01-29 00:50:10.851295"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(8731487396604336735)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduction Create (0.5ms)[0m  [1m[32mINSERT INTO "productions" ("title", "genre", "description", "budget", "image", "director", "ongoing", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "Hamlet"], ["genre", "Drama"], ["description", "The Tragedy of Hamlet, Prince of Denmark"], ["budget", 100000.0], ["image", "https://upload.wikimedia.org/wikipedia/commons/6/6a/Edwin_Booth_Hamlet_1870.jpg"], ["director", "Bill Shakespeare"], ["ongoing", true], ["created_at", "2023-01-29 00:50:33.081650"], ["updated_at", "2023-01-29 00:50:33.081650"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduction Create (0.1ms)[0m  [1m[32mINSERT INTO "productions" ("title", "genre", "description", "budget", "image", "director", "ongoing", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "Cats"], ["genre", "Musical"], ["description", " Jellicles cats sing and dance"], ["budget", 200000.0], ["image", "https://upload.wikimedia.org/wikipedia/en/3/3e/CatsMusicalLogo.jpg"], ["director", "Andrew Lloyd Webber"], ["ongoing", true], ["created_at", "2023-01-29 00:50:33.087781"], ["updated_at", "2023-01-29 00:50:33.087781"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduction Create (0.3ms)[0m  [1m[32mINSERT INTO "productions" ("title", "genre", "description", "budget", "image", "director", "ongoing", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "Carmen"], ["genre", "Opera"], ["description", "Set in southern Spain this is the story of the downfall of Don José, a naïve soldier who is seduced by the wiles of the fiery and beautiful Carmen."], ["budget", 200000.0], ["image", "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Prudent-Louis_Leray_-_Poster_for_the_premi%C3%A8re_of_Georges_Bizet%27s_Carmen.jpg/300px-Prudent-Louis_Leray_-_Poster_for_the_premi%C3%A8re_of_Georges_Bizet%27s_Carmen.jpg"], ["director", "Georges Bizet"], ["ongoing", false], ["created_at", "2023-01-29 00:50:33.090976"], ["updated_at", "2023-01-29 00:50:33.090976"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduction Create (0.1ms)[0m  [1m[32mINSERT INTO "productions" ("title", "genre", "description", "budget", "image", "director", "ongoing", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "Hamilton"], ["genre", "Musical"], ["description", "An American Musical is a sung-and-rapped-through musical by Lin-Manuel Miranda. It tells the story of American Founding Father Alexander Hamilton."], ["budget", 400000.0], ["image", "https://upload.wikimedia.org/wikipedia/en/thumb/8/83/Hamilton-poster.jpg/220px-Hamilton-poster.jpg"], ["director", "Lin-Manuel Miranda"], ["ongoing", false], ["created_at", "2023-01-29 00:50:33.094378"], ["updated_at", "2023-01-29 00:50:33.094378"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProduction Load (0.3ms)[0m  [1m[34mSELECT "productions".* FROM "productions"[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (23.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "scaffold_test_development"[0m
+  [1m[35m (21.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "scaffold_test_test"[0m
+  [1m[35m (85.5ms)[0m  [1m[35mCREATE DATABASE "scaffold_test_development" ENCODING = 'unicode'[0m
+  [1m[35m (77.8ms)[0m  [1m[35mCREATE DATABASE "scaffold_test_test" ENCODING = 'unicode'[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8731487396604336735)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateProductions (20230129003846)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "productions" ("id" bigserial primary key, "title" character varying, "genre" character varying, "description" text, "budget" float, "image" character varying, "director" character varying, "ongoing" boolean, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230129003846"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-01-29 00:52:39.307345"], ["updated_at", "2023-01-29 00:52:39.307345"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(8731487396604336735)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduction Create (0.5ms)[0m  [1m[32mINSERT INTO "productions" ("title", "genre", "description", "budget", "image", "director", "ongoing", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "Hamlet"], ["genre", "Drama"], ["description", "The Tragedy of Hamlet, Prince of Denmark"], ["budget", 100000.0], ["image", "https://upload.wikimedia.org/wikipedia/commons/6/6a/Edwin_Booth_Hamlet_1870.jpg"], ["director", "Bill Shakespeare"], ["ongoing", true], ["created_at", "2023-01-29 00:54:52.251195"], ["updated_at", "2023-01-29 00:54:52.251195"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduction Create (0.1ms)[0m  [1m[32mINSERT INTO "productions" ("title", "genre", "description", "budget", "image", "director", "ongoing", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "Cats"], ["genre", "Musical"], ["description", " Jellicles cats sing and dance"], ["budget", 200000.0], ["image", "https://upload.wikimedia.org/wikipedia/en/3/3e/CatsMusicalLogo.jpg"], ["director", "Andrew Lloyd Webber"], ["ongoing", true], ["created_at", "2023-01-29 00:54:52.257865"], ["updated_at", "2023-01-29 00:54:52.257865"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduction Create (0.1ms)[0m  [1m[32mINSERT INTO "productions" ("title", "genre", "description", "budget", "image", "director", "ongoing", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "Carmen"], ["genre", "Opera"], ["description", "Set in southern Spain this is the story of the downfall of Don José, a naïve soldier who is seduced by the wiles of the fiery and beautiful Carmen."], ["budget", 200000.0], ["image", "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Prudent-Louis_Leray_-_Poster_for_the_premi%C3%A8re_of_Georges_Bizet%27s_Carmen.jpg/300px-Prudent-Louis_Leray_-_Poster_for_the_premi%C3%A8re_of_Georges_Bizet%27s_Carmen.jpg"], ["director", "Georges Bizet"], ["ongoing", false], ["created_at", "2023-01-29 00:54:52.261807"], ["updated_at", "2023-01-29 00:54:52.261807"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduction Create (0.1ms)[0m  [1m[32mINSERT INTO "productions" ("title", "genre", "description", "budget", "image", "director", "ongoing", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "Hamilton"], ["genre", "Musical"], ["description", "An American Musical is a sung-and-rapped-through musical by Lin-Manuel Miranda. It tells the story of American Founding Father Alexander Hamilton."], ["budget", 400000.0], ["image", "https://upload.wikimedia.org/wikipedia/en/thumb/8/83/Hamilton-poster.jpg/220px-Hamilton-poster.jpg"], ["director", "Lin-Manuel Miranda"], ["ongoing", false], ["created_at", "2023-01-29 00:54:52.264450"], ["updated_at", "2023-01-29 00:54:52.264450"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (22.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "scaffold_test_development"[0m
+  [1m[35m (21.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "scaffold_test_test"[0m
+  [1m[35m (82.7ms)[0m  [1m[35mCREATE DATABASE "scaffold_test_development" ENCODING = 'unicode'[0m
+  [1m[35m (82.4ms)[0m  [1m[35mCREATE DATABASE "scaffold_test_test" ENCODING = 'unicode'[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8731487396604336735)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateProductions (20230129003846)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "productions" ("id" bigserial primary key, "title" character varying, "genre" character varying, "description" text, "budget" float, "image" character varying, "director" character varying, "ongoing" boolean, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230129003846"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-01-29 00:57:05.344634"], ["updated_at", "2023-01-29 00:57:05.344634"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(8731487396604336735)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduction Create (0.5ms)[0m  [1m[32mINSERT INTO "productions" ("title", "genre", "description", "budget", "image", "director", "ongoing", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "Hamlet"], ["genre", "Drama"], ["description", "The Tragedy of Hamlet, Prince of Denmark"], ["budget", 100000.0], ["image", "https://upload.wikimedia.org/wikipedia/commons/6/6a/Edwin_Booth_Hamlet_1870.jpg"], ["director", "Bill Shakespeare"], ["ongoing", true], ["created_at", "2023-01-29 00:57:14.447974"], ["updated_at", "2023-01-29 00:57:14.447974"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduction Create (0.1ms)[0m  [1m[32mINSERT INTO "productions" ("title", "genre", "description", "budget", "image", "director", "ongoing", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "Cats"], ["genre", "Musical"], ["description", " Jellicles cats sing and dance"], ["budget", 200000.0], ["image", "https://upload.wikimedia.org/wikipedia/en/3/3e/CatsMusicalLogo.jpg"], ["director", "Andrew Lloyd Webber"], ["ongoing", true], ["created_at", "2023-01-29 00:57:14.455044"], ["updated_at", "2023-01-29 00:57:14.455044"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduction Create (0.2ms)[0m  [1m[32mINSERT INTO "productions" ("title", "genre", "description", "budget", "image", "director", "ongoing", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "Carmen"], ["genre", "Opera"], ["description", "Set in southern Spain this is the story of the downfall of Don José, a naïve soldier who is seduced by the wiles of the fiery and beautiful Carmen."], ["budget", 200000.0], ["image", "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Prudent-Louis_Leray_-_Poster_for_the_premi%C3%A8re_of_Georges_Bizet%27s_Carmen.jpg/300px-Prudent-Louis_Leray_-_Poster_for_the_premi%C3%A8re_of_Georges_Bizet%27s_Carmen.jpg"], ["director", "Georges Bizet"], ["ongoing", false], ["created_at", "2023-01-29 00:57:14.458142"], ["updated_at", "2023-01-29 00:57:14.458142"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduction Create (0.1ms)[0m  [1m[32mINSERT INTO "productions" ("title", "genre", "description", "budget", "image", "director", "ongoing", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "Hamilton"], ["genre", "Musical"], ["description", "An American Musical is a sung-and-rapped-through musical by Lin-Manuel Miranda. It tells the story of American Founding Father Alexander Hamilton."], ["budget", 400000.0], ["image", "https://upload.wikimedia.org/wikipedia/en/thumb/8/83/Hamilton-poster.jpg/220px-Hamilton-poster.jpg"], ["director", "Lin-Manuel Miranda"], ["ongoing", false], ["created_at", "2023-01-29 00:57:14.460808"], ["updated_at", "2023-01-29 00:57:14.460808"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/productions" for ::1 at 2023-01-28 20:00:12 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductionsController#index as HTML
+  [1m[36mProduction Load (0.3ms)[0m  [1m[34mSELECT "productions".* FROM "productions"[0m
+  ↳ app/controllers/productions_controller.rb:8:in `index'
+Completed 200 OK in 54ms (Views: 29.8ms | ActiveRecord: 2.5ms | Allocations: 39588)
+
+
+Started GET "/productions/1" for ::1 at 2023-01-28 20:00:15 -0500
+Processing by ProductionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduction Load (0.1ms)[0m  [1m[34mSELECT "productions".* FROM "productions" WHERE "productions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/productions_controller.rb:44:in `set_production'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 1345)
+
+
+Started GET "/productions/2" for ::1 at 2023-01-28 20:00:20 -0500
+Processing by ProductionsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProduction Load (0.1ms)[0m  [1m[34mSELECT "productions".* FROM "productions" WHERE "productions"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/productions_controller.rb:44:in `set_production'
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 666)
+
+
+Started GET "/productions/3" for ::1 at 2023-01-28 20:00:23 -0500
+Processing by ProductionsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduction Load (0.1ms)[0m  [1m[34mSELECT "productions".* FROM "productions" WHERE "productions"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/productions_controller.rb:44:in `set_production'
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 666)
+
+
+Started GET "/productions/5" for ::1 at 2023-01-28 20:00:27 -0500
+Processing by ProductionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mProduction Load (0.1ms)[0m  [1m[34mSELECT "productions".* FROM "productions" WHERE "productions"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/productions_controller.rb:44:in `set_production'
+Completed 404 Not Found in 1ms (ActiveRecord: 0.1ms | Allocations: 541)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Production with 'id'=5):
+  
+app/controllers/productions_controller.rb:44:in `set_production'
