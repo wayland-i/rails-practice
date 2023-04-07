@@ -950,3 +950,11 @@ Processing by GuestsController#index as HTML
 Completed 200 OK in 1ms (Views: 0.1ms | Allocations: 729)
 
 
+Started GET "/guests" for 127.0.0.1 at 2023-04-05 18:20:42 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GuestsController#index as HTML
+  [1m[36mGuest Load (0.5ms)[0m  [1m[34mSELECT "guests".* FROM "guests"[0m
+  ↳ app/controllers/guests_controller.rb:4:in `index'
+Completed 200 OK in 13ms (Views: 6.3ms | ActiveRecord: 0.8ms | Allocations: 20047)
+
+
